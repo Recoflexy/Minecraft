@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class WorldGenerator : MonoBehaviour
+{
+    public GameObject blockPrefab; // Cube que nous allons utiliser comme bloc
+    public int width = 10; // Largeur du monde
+    public int depth = 10; // Profondeur du monde
+    public float height = 1.0f; // Hauteur des blocs
+
+    void Start()
+    {
+        GenerateWorld();
+    }
+
+    void GenerateWorld()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < depth; z++)
+            {
+                // Créer un bloc à chaque position
+                Vector3 position = new Vector3(x, height, z);
+                Instantiate(blockPrefab, position, Quaternion.identity);
+            }
+        }
+    }
+}
+ 
